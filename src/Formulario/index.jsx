@@ -56,7 +56,7 @@ const Formulario = (props) => {
     }
 
     return (
-        <form>
+        <form class="container">
             <h2>
                 Calculadora de IMC
             </h2>
