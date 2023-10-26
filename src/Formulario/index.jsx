@@ -6,7 +6,7 @@ const Formulario = (props) => {
 
     const calculaImc = () => {
         const alturaInt = altura / 100
-        const imc = peso / (alturaInt * alturaInt) ;
+        const imc = peso / (alturaInt * alturaInt);
 
         if (peso) {
             if (imc <= 18.5) {
@@ -48,7 +48,7 @@ const Formulario = (props) => {
                 return (
                     <>
                         <p>O indice de sua massa corporal é de: {imc.toFixed(1)}</p>
-                        <p>Classificação: Abaixo do peso</p>
+                        <p>Classificação: Obesidade III (Mórbida)</p>
                     </>
                 )
             }
@@ -56,14 +56,21 @@ const Formulario = (props) => {
     }
 
     return (
-        <form class="container">
-            <h2>
-                Calculadora de IMC
-            </h2>
-            <input type="number" name="peso" id="peso" placeholder="Digite aqui o seu peso" onChange={evento => setPeso(parseInt(evento.target.value))} />
-            <input type="number" name="Altura" id="altura" placeholder="Altura em cm" onChange={evento => setAltura(parseInt(evento.target.value))} />
-            {calculaImc()}
-        </form>
+        <>
+            <form class="container">
+                <h2>
+                    Calculadora de IMC
+                </h2><br />
+                <p>Digite seu peso e altura para calcularmos seu IMC</p>
+                <div class="input">
+                    <input type="number" name="peso" id="peso" placeholder="Digite aqui o seu peso" onChange={evento => setPeso(parseInt(evento.target.value))} />
+                    <input type="number" name="Altura" id="altura" placeholder="Altura em cm" onChange={evento => setAltura(parseInt(evento.target.value))} />
+                </div>
+                <div class="resposta">
+                    {calculaImc()}
+                </div>
+            </form>
+        </>
     )
 }
 
